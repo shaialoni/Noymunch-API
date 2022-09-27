@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose')
 
-const exampleSchema = new Schema(
+const itemSchema = new Schema(
 	{
 		title: {
 			type: String,
@@ -14,12 +14,24 @@ const exampleSchema = new Schema(
             type: String,
             required: true
         },
+		ingredients: {
+			type: String,
+			required: true
+		},
+		weight: {
+			type: Number,
+			required: true
+		},
+		netCarb: {
+			type: Number,
+			required: true
+		},
         price: {
             type: Number,
             required: true``
         },
 		owner: {
-			type: mongoose.Schema.Types.ObjectId,
+			type: Schema.Types.ObjectId,
 			ref: 'User',
 			required: true,
 		},
@@ -29,4 +41,4 @@ const exampleSchema = new Schema(
 	}
 )
 
-module.exports = model('Example', itemSchema)
+module.exports = model('Item', itemSchema)
